@@ -57,11 +57,11 @@ The grading scheme is as follows
       you)
     - Ex.5 will be evaluated based on your demo video.
 
-**IMPORTANT**. GitHub will automatically check if your code can be build or not. If your code is not built successfully,
+**IMPORTANT:** GitHub will automatically check if your code can be build or not. If your code is not built successfully,
 you will get **zero** point from this assignment. So make sure if there's build/compile error or not. If build test
 fails on GitHub although it is successfully built on your machine, please leave an issue.
 
-**IMPORTANT**. If the system detect a suspected plagiarism case, you will get **zero** point from this assignment.
+**IMPORTANT:** If the system detect a suspected plagiarism case, you will get **zero** point from this assignment.
 
 Please leave your questions on GitHub, so your colleagues also can join our discussions.
 
@@ -270,8 +270,11 @@ terrain, the easiest way is adding offset to y coordinates of each target positi
 ![figure: terrain](imgs/terrain.gif)
 
 You have a full freedom to choose the terrain map you want to use: you can just create a bumpy terrain by adding some
-spheres in the scene as I've done here. Or you can download a landscape mesh file in **.obj** format. Please figure out
-the best strategy to implement this by your own.
+spheres in the scene as I've done here. Or you can download a landscape mesh file in **.obj** format (there's an example
+terrain obj file in data folder). Please figure out the best strategy to implement this by your own.
+
+**IMPORTANT:** For Ex.5, create a new git branch named ```ex5``` and push your code there while your implementation of
+Ex.1-4 still remains in main branch. If your Ex.5 implementation breaks Ex.1-4, you may not get full points from Ex.1-4.
 
 **Task**:
 
