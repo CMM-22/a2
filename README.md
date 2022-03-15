@@ -2,6 +2,17 @@
 
 **Hand-in:** Apr. 1, 2022, 18:00 CEST
 
+----
+
+Leave your name, student ID, ETH email address and URL link to demo video here.
+
+- Name:
+- Student ID:
+- ETH Email:
+- Demo Video URL:
+
+----
+
 In this assignment, we implement a kinematic walking controller for a legged robot!
 
 Let's see the figure below.
@@ -47,9 +58,10 @@ The grading scheme is as follows
     - Ex.5 will be evaluated based on your demo video.
 
 **IMPORTANT**. GitHub will automatically check if your code can be build or not. If your code is not built successfully,
-you will get **zero** point from this assignment. So make sure if there's build/compile error or not.
+you will get **zero** point from this assignment. So make sure if there's build/compile error or not. If build test
+fails on GitHub although it is successfully built on your machine, please leave an issue.
 
-**IMPORTANT**. If the system detect a suspected plagiarism case, you will get **zero** point from this assignment.  
+**IMPORTANT**. If the system detect a suspected plagiarism case, you will get **zero** point from this assignment.
 
 Please leave your questions on GitHub, so your colleagues also can join our discussions.
 
@@ -59,7 +71,7 @@ Okay now let's do this step-by-step :)
 
 ### Ex.1 Forward Kinematics (baseline)
 
-In order to formulate an IK problem, firstly, we have to express the positions of a feet as functions of joint angles (
+In order to formulate an IK problem, firstly, we have to express the positions of a foot as functions of joint angles (
 and the base position). Formally speaking, given a *generalized coordinates* vector
 
 ![equation: generalized coordinate](imgs/eq-q.png)
@@ -92,8 +104,7 @@ In the previous lecture, we learned how to find this map by **forward kinematics
   function returns position of a point in the coordinate frame of the parent of `qIdx` after the DOF rotation has been
   applied.
 
-Once you implement ```getWorldCoordinates``` function correctly, you will see the green transparent sphere around the
-feet of the robots.
+Once you implement ```getWorldCoordinates``` function correctly, you will see green spheres around feet of the robot.
 
 ![figure: forward kinematics](imgs/fk.png)
 
@@ -142,8 +153,7 @@ small perturbation *h* around jth component of **q**, and compute the (i,j) comp
 
 ### Ex.2-2 Inverse Kinematics - IK Solver (baseline)
 
-Now, it's time to implement a IK solver. Choose one of optimization methods we learned in the previous lecture:
-gradient-descent, Neton's, or Gauss-Newton.
+Now, it's time to implement a IK solver. Use **Gauss-Newton** methods we learned in the previous lecture.
 
 We solve four independent IK problems (one for each leg.) Let's say **q**<sup>desired,i</sup> is a solution for ith
 feet.
@@ -164,14 +174,11 @@ q**<sup>desired</sup>.
 
 **Task**:
 
-- Implement an IK solver based on gradient-descent, Neton's, or Gauss-Newton.
+- Implement an IK solver based on the Gauss-Newton method.
 
 **Details:**
 
 - Use Jacobian matrix computed by `gcrr.estimate_linear_jacobian(p, rb, dpdq)` we implemented for Ex. 2-1.
-- It doesn't matter which optimization method you use for IK among aformentioned methods, but I strongly recommend to
-  use **Gauss-Newton** method. It is easy to tune and has a better convergence. Remember, if your IK solver is not
-  robust enough, you won't get full point from this exercise.
 - I left some useful hints on the source code. Please read it carefully.
 
 Let's see how the robot moves. Run ```locomotion``` app and press **Play** button (or just tap **SPACE** key of your
@@ -190,8 +197,8 @@ speed in the main menu.
 Oops! The base of the robot is not moving at all! Well, a robot trotting in place is already adorable enough, but this
 is not what we really want. We want to make the robot follow our input command.
 
-Let's see what is happening here. Although I'm giving 0.3 m/s forward speed command, the target trajectories (red for
-base, white for feet) are not updated accordingly. With a correct implementation, the trajectory should look like this:
+Let's see what happens here. Although I'm giving 0.3 m/s forward speed command, the target trajectories (red for base,
+white for feet) are not updated accordingly. With a correct implementation, the trajectory should look like this:
 
 ![figure: base trajectory](imgs/basetrajectory.png)
 
@@ -208,11 +215,6 @@ base, white for feet) are not updated accordingly. With a correct implementation
 
 - Your task is completing ```generate``` function so that it updates future position and orientation according to our
   forward, sideways, turning speed commands.
-- **Please record a video ~ 10 secs demonstrating your kinematic controller. The robot in the video should follow your
-  keyboard command, and your video should be visible enough to see how well the robot tracks target trajectories. Upload
-  it to this repository with a name "demo1.mp4".** Do a double check if your video can be played without any additional
-  encoding/decoding. It's also fine to upload your video to YouTube and add its link to on the top of this README.md. If
-  I cannot play or access your video until the deadline, you won't get full points.
 
 **Details:**
 
@@ -245,7 +247,9 @@ derive analytic Jacobian matrix, and implement this into our code.
 - Functions:
     - ```void compute_dpdq(const P3D &p, RB *rb, Matrix &dpdq)```
 
-**Test:** Compile and run `src/test-a2/test.cpp`. Test 4 should pass.
+**Test:** Compile and run `src/test-a2/test.cpp`. Test 4 should pass. Note that **passing this test does not necessarily
+mean you get a full point** Your implementation should give correct results for every case. We will auto-grade your
+implementation with bunch of test cases after the deadline.
 
 ### Ex.5 Uneven Terrain (advanced)
 
@@ -265,10 +269,11 @@ the best strategy to implement this by your own.
 - Make the robot walk on an uneven terrain (5%)
 - Visualize your terrain in ```locomotion``` app (5%).
 - **Please record a video ~ 20 secs demonstrating your implementation. The robot in the video should walk on an uneven
-  terrain, and your video should be visible enough to see how well your controller performs the task. Upload it to this
-  repository with a name "demo2.mp4".** Do a double check if your video can be played without any additional
-  encoding/decoding. It's also fine to upload your video to YouTube and add its link to on the top of this README.md. If
-  I cannot play or access your video until the deadline, you won't get full points.
+  terrain, and your video should be visible enough to see how well your controller performs the task. Upload it to
+  YouTube or any other video hosting website and add its link to on the top of this README.md.** If I cannot play or
+  access your video until the deadline, you won't get full points.
+- Please adjust your camera zoom and perspective so that your robot is well visible in the video. You may not get full
+  point if your robot is not clearly visible.
 
 **Hint:**
 
