@@ -57,9 +57,8 @@ The grading scheme is as follows
       you)
     - Ex.5 will be evaluated based on your demo video.
 
-**IMPORTANT:** GitHub will automatically check if your code can be build or not. If your code is not built successfully,
-you will get **zero** point from this assignment. So make sure if there's build/compile error or not. If build test
-fails on GitHub although it is successfully built on your machine, please leave an issue.
+**IMPORTANT:** If your code is not built successfully, you will get **zero** point from this assignment. So make sure
+your code is built without any build/compile error. 
 
 **IMPORTANT:** If the system detect a suspected plagiarism case, you will get **zero** point from this assignment.
 
@@ -303,4 +302,4 @@ you know what? We have implemented fundamental building blocks of legged locomot
 control a real robot someday!
 
 By the way, can you make a guess why using kinematic controller for a real legged robot doesn't really work well in
-practice? If you are interested in, please leave your ideas on the github issue.
+practice? If you are interested in, please leave your ideas on the GitHub issue.
