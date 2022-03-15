@@ -180,6 +180,15 @@ q**<sup>desired</sup>.
 
 - Use Jacobian matrix computed by `gcrr.estimate_linear_jacobian(p, rb, dpdq)` we implemented for Ex. 2-1.
 - I left some useful hints on the source code. Please read it carefully.
+- When you overwrite eigen matrix variable values in a single statement, you should use ```eval()``` function to prevent
+  corruption. (note. this is caused by *aliasing*. See [this](https://eigen.tuxfamily.org/dox/group__TopicAliasing.html)
+  for more details.) For example,
+
+```cpp
+// overwrite Matrix J in a single statement
+// use eval() function!
+J = J.block(0,6,3,q.size() - 6).eval();
+```
 
 Let's see how the robot moves. Run ```locomotion``` app and press **Play** button (or just tap **SPACE** key of your
 keyboard). Do you see the robot trotting in place? Then you are on the right track!

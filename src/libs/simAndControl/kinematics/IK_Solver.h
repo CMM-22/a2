@@ -30,7 +30,7 @@ public:
 
     void solve(int nSteps = 10) {
         GeneralizedCoordinatesRobotRepresentation gcrr(robot);
-        
+
         for (uint i = 0; i < nSteps; i++) {
             dVector q;
             gcrr.getQ(q);
