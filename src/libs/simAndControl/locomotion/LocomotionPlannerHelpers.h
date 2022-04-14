@@ -289,7 +289,6 @@ public:
         s[0] = bFrame.p[0];
         s[1] = bFrame.p[1];
         s[2] = bFrame.p[2];
-
         s[3] = bFrame.h;
         return s;
     }
@@ -302,13 +301,7 @@ public:
         s[0] = p[0];
         s[1] = p[1];
         s[2] = p[2];
-
         s[3] = h;
-
-        s[4] = vels[0];
-        s[5] = vels[1];
-        s[6] = vels[2];
-
         return s;
     }
 
