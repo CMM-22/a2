@@ -46,12 +46,11 @@ public:
             dVector deltaq(q.size() - 6);
             deltaq.setZero();
 
-            // TODO: here, compute deltaq using GD, Newton, or Gauss-Newton.
+            // TODO: here, compute deltaq using Gauss-Newton.
             // end effector targets are stored in endEffectorTargets vector.
             //
             // Hint:
             // - use gcrr.estimate_linear_jacobian(p, rb, dpdq) function for Jacobian matrix.
-            // - if you already implemented analytic Jacobian, you can use gcrr.compute_dpdq(const P3D &p, RB *rb, Matrix &dpdq)
             // - don't forget we use only last q.size() - 6 columns (use block(0,6,3,q.size() - 6) function)
             // - when you compute inverse of the matrix, use ldlt().solve() instead of inverse() function. this is numerically more stable.
             //   see https://eigen.tuxfamily.org/dox-devel/group__LeastSquares.html
